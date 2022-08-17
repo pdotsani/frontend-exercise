@@ -47,7 +47,14 @@ When you are finished, please upload your completed work to your Github and invi
 Please take some time to answer the following questions. Your answers should go directly in this `readme`.
 
 - Given more time, what would you suggest for improving the performance of this app?
+  - I would possibly fetch a list of pokemone after a search is triggered. So initially you would 
+  see no search results. This is debatable for UX since it is nice to browse all entries on load.
+  - I would also make showing evolution optional, you could cut down one additional api call when loading the details.
+
 
 - Is there anything you would consider doing if we were to go live with this app?
+  - I would consider some form of pagination or "infinite scrolling" functionality for the index conatiner.
+  - A clear search option would also be nice to reset the app to its initial state.
 
 - What was the most challenging aspect of this work for you (if at all)?
+  - Nothing was significantly challenging. The most complex part of the code would probably have to be the rendering of the evolution chain data.

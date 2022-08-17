@@ -23,7 +23,6 @@ function App() {
 
     const onSearchValueChange = (event) => {
         const value = event.target.value
-        setPokemonDetails()
         setSearchValue(value)
         if (!value) {
             setPokemonIndex(pokemon);
