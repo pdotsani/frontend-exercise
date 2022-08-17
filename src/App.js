@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchAllPokemon, fetchPokemonDetailsByName, fetchEvolutionChainById } from "./api";
+import { fetchAllPokemon, fetchPokemonDetailsByName, fetchPokemonSpeciesByName, fetchEvolutionChainById } from "./api";
 
 function App() {
     const [pokemonIndex, setPokemonIndex] = useState([])
@@ -37,7 +37,10 @@ function App() {
     const onGetDetails = (name) => async () => {
         const fetchOnePokemon = async (name) => {
             const details = await fetchPokemonDetailsByName(name);
-            const chain = await fetchEvolutionChainById(details.id);
+            const species = await fetchPokemonSpeciesByName(name);
+            const url = new URL(species.evolution_chain.url);
+            const pathname = url.pathname.split("/");
+            const chain = await fetchEvolutionChainById(pathname[pathname.length - 2]);
 
             setPokemonDetails({
                 ...details,
@@ -89,23 +92,23 @@ function App() {
                 {
                     pokemonDetails && (
                         <div className={'pokedex__details'}>
-                            <div className="pokedex__details_header">{pokemonDetails.name}</div>
+                            <div className="pokedex__details-header">{pokemonDetails.name}</div>
                             <div className="pokedex__details_typesandmoves">
                                 <div>
-                                    <div className="pokedex__details_header">Types</div>
+                                    <div className="pokedex__details-header">Types</div>
                                     <ul>
                                         {pokemonDetails.types?.map(type => (<li key={type.slot}>{type.type.name}</li>))}
                                     </ul>
                                 </div>
                                 <div>
-                                    <div className="pokedex__details_header">Moves</div>
+                                    <div className="pokedex__details-header">Moves</div>
                                     <ul>
                                         {pokemonDetails.moves?.slice(0,4).map((move, idx) => (<li key={idx}>{move.move.name}</li>))}
                                     </ul>
                                 </div>
                             </div>
                             <div>
-                                <div className="pokedex__details_header">Evolutions</div>
+                                <div className="pokedex__details-header">Evolutions</div>
                                 <div className="pokedex_details-evolutions">{getEvolutionChain(pokemonDetails.chain)}</div>
                             </div>
                         </div>
