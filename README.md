@@ -47,14 +47,13 @@ When you are finished, please upload your completed work to your Github and invi
 Please take some time to answer the following questions. Your answers should go directly in this `readme`.
 
 - Given more time, what would you suggest for improving the performance of this app?
-  - I would possibly fetch a list of pokemone after a search is triggered. So initially you would 
-  see no search results. This is debatable for UX since it is nice to browse all entries on load.
-  - I would also make showing evolution optional, you could cut down one additional api call when loading the details.
-
+  - I would possibly only fetch a list of pokemon after a search is triggered. So, initially you would see no search results and a search would be called via an action (ie button on keypress). This is debatable for UX since it is nice to browse all entries on load.
+  - I would also make the evolution chain display optional, this would cut down one additional api call when loading the details.
+  - If we keep the inital list on load I would consider some form of pagination or "infinite scrolling" functionality for the index conatiner.
 
 - Is there anything you would consider doing if we were to go live with this app?
-  - I would consider some form of pagination or "infinite scrolling" functionality for the index conatiner.
   - A clear search option would also be nice to reset the app to its initial state.
+  - Based on the way the api return body is formatted, it might have been a cleaner approach to run a fetch on the url given by the `fetchPokemonSpeciesByName` to retrieve the evolution chain data instead of reteving the id and feeding it to the given api call `fetchEvolutionChainById`.
 
 - What was the most challenging aspect of this work for you (if at all)?
-  - Nothing was significantly challenging. The most complex part of the code would probably have to be the rendering of the evolution chain data.
+  - The most complex part of the code would probably have to be the rendering of the evolution chain data in `getEvolutionChain`.
