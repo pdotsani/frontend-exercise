@@ -38,7 +38,6 @@ function App() {
     const onGetDetails = (name) => async () => {
         const fetchOnePokemon = async (name) => {
             const details = await fetchPokemonDetailsByName(name);
-            console.log(details)
             const chain = await fetchEvolutionChainById(details.id);
 
             setPokemonDetails({
