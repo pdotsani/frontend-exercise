@@ -16,17 +16,49 @@ body {
 
 .pokedex__content {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 5rem;
 }
 
 .pokedex__search-input {
+  margin-bottom: 20px;
 }
 
 .pokedex__search-results {
+  height: 60vh;
+  overflow-y: scroll;
+  border: 2px solid red;
+  width: 30vw;
 }
 
 .pokedex__list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 3rem;
+  border-bottom: 1px solid black;
 }
 
 .pokedex__details {
+  padding: 10px;
+  border: 2px solid black;
+  height: auto;
+}
+
+.pokedex__details_header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.pokedex__details_typesandmoves {
+  display: flex;
+  margin: 15px 0;
+}
+
+.pokedex_details-evolutions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
